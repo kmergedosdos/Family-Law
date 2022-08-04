@@ -1,4 +1,5 @@
 import './index.css';
+import { GridComponent } from '@syncfusion/ej2-react-grids';
 
 // Displays all the cases in a table
 
@@ -37,6 +38,7 @@ const CasesDataTable = ({
 
    return (
       <div className='table--container'>
+         <GridComponent />
          <div className="table--wrapper">
             <div className='table--header table--row'>
                <div className='table--col'>Case no.</div>

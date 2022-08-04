@@ -1,69 +1,40 @@
 import './index.css';
-import { GridComponent } from '@syncfusion/ej2-react-grids';
+import { useState } from 'react';
+import MOCK_DATA from './MOCK_DATA.json';
 
 // Displays all the cases in a table
 
-const CasesDataTable = ({
-   cases
-}) => {
+const CasesDataTable = () => {
 
-   cases = [
-      {
-         num: "22-00001",
-         desc: "Divorce",
-         deadline: "today",
-         clientName: "John Smith",
-         clientEmail: "johnsmith@test.com",
-         clientPhone: "0123456789"
-      },
-      {
-         num: "22-00002",
-         desc: "Family Law",
-         deadline: "tomorrow",
-         clientName: "Aaron Burr",
-         clientEmail: "aaronburr@test.com",
-         clientPhone: "0123456789"
-      },
-      {
-         num: "22-00003",
-         desc: "Child Custody",
-         deadline: "next week",
-         clientName: "John Smith",
-         clientEmail: "johnsmith@test.com",
-         clientPhone: "0123456789"
-      }
-   ]
-
-   const emailWidth = {width: 150};
+   const [casesData, setCasesData] = useState(MOCK_DATA);
 
    return (
-      <div className='table--container'>
-         <GridComponent />
-         <div className="table--wrapper">
-            <div className='table--header table--row'>
-               <div className='table--col'>Case no.</div>
-               <div className='table--col'>Name</div>
-               <div className='table--col'>Description</div>
-               <div className='table--col'>Deadline</div>
-               <div className='table--col' style={emailWidth}>Email</div>
-               <div className='table--col'>Phone</div>
-            </div>
+      <table>
+         <thead>
+            <tr>
+               <th>Case no.</th>
+               <th>Name</th>
+               <th>Description</th>
+               <th>Deadline</th>
+               <th>Email</th>
+               <th>Phone</th>
+            </tr>
+         </thead>
+         <tbody>
             {
-               cases.map((caseItem, i) => {
-                  return (
-                     <div className='table--item table--row'>
-                        <div className='table--col'>{caseItem.num}</div>
-                        <div className='table--col'>{caseItem.clientName}</div>
-                        <div className='table--col'>{caseItem.desc}</div>
-                        <div className='table--col'>{caseItem.deadline}</div>
-                        <div className='table--col' style={emailWidth}>{caseItem.clientEmail}</div>
-                        <div className='table--col'>{caseItem.clientPhone}</div>
-                     </div>
-                  );
-               })
+               casesData.map(caseItem => (
+                  <tr>
+                     <td>{caseItem.id}</td>
+                     <td>{caseItem.name}</td>
+                     <td>{caseItem.description}</td>
+                     <td>{caseItem.deadline}</td>
+                     <td>{caseItem.email}</td>
+                     <td>{caseItem.phone}</td>
+                  </tr>
+               ))
             }
-         </div>
-      </div>
+         </tbody>
+      </table>
    );
 }
 

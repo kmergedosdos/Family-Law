@@ -1,7 +1,21 @@
+import CasesDataTable from "../components/CasesDataTable";
+
 const Overview = () => {
+
+   const style = {
+      display: "flex",
+      flexDirection: "column"
+   }
+
    return (
-      <div>
-         Overview
+      <div style={style}>
+         Overview here
+         <div style={{
+            // overflowX: "auto",
+            // border: "1px solid black"
+         }}>
+            <CasesDataTable />
+         </div>
       </div>
    );
 }

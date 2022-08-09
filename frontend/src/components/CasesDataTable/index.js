@@ -60,32 +60,35 @@ const CasesDataTable = () => {
    }
 
    return (
-      <table>
-         <thead>
-            <tr>
-               <th onClick={sortByCaseNumber}>Case no.</th>
-               <th onClick={() => sortBy("name")}>Name</th>
-               <th onClick={() => sortBy("description")}>Description</th>
-               <th onClick={() => sortBy("deadline")}>Deadline</th>
-               <th onClick={() => sortBy("email")}>Email</th>
-               <th onClick={() => sortBy("phone")}>Phone</th>
-            </tr>
-         </thead>
-         <tbody>
-            {
-               casesData.map(caseItem => (
-                  <tr key={caseItem.id}>
-                     <td>{caseItem.id}</td>
-                     <td><Link to='/documents' state={{ client: caseItem.name }}>{caseItem.name}</Link></td>
-                     <td>{caseItem.description}</td>
-                     <td>{caseItem.deadline}</td>
-                     <td>{caseItem.email}</td>
-                     <td>{caseItem.phone}</td>
-                  </tr>
-               ))
-            }
-         </tbody>
-      </table>
+      <div>
+         <table>
+            <thead>
+               <tr>
+                  <th onClick={sortByCaseNumber}>Case no.</th>
+                  <th onClick={() => sortBy("name")}>Name</th>
+                  <th onClick={() => sortBy("description")}>Description</th>
+                  <th onClick={() => sortBy("deadline")}>Deadline</th>
+                  <th onClick={() => sortBy("email")}>Email</th>
+                  <th onClick={() => sortBy("phone")}>Phone</th>
+               </tr>
+            </thead>
+            <tbody>
+               {
+                  casesData.map(caseItem => (
+                     <tr key={caseItem.id}>
+                        <td>{caseItem.id}</td>
+                        <td><Link to='/documents' state={{ client: caseItem.name }}>{caseItem.name}</Link></td>
+                        <td>{caseItem.description}</td>
+                        <td>{caseItem.deadline}</td>
+                        <td>{caseItem.email}</td>
+                        <td>{caseItem.phone}</td>
+                     </tr>
+                  ))
+               }
+            </tbody>
+         </table>
+         <button style={{cursor: "pointer"}}>+ New</button>
+      </div>
    );
 }
 

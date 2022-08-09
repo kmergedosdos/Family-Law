@@ -1,6 +1,6 @@
 import './index.css';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import MOCK_DATA from './MOCK_DATA.json';
 
 // Displays all the cases in a table
@@ -8,14 +8,21 @@ import MOCK_DATA from './MOCK_DATA.json';
 const CasesDataTable = () => {
 
    const [casesData, setCasesData] = useState(MOCK_DATA);
-   const [sortOrder, setSortOrder] = useState({
-      caseNo: "ASC",
-      name: "DESC",
-      description: "DESC",
-      deadline: "DESC",
-      email: "DESC",
-      phone: "DESC"
-   })
+   const [sortOrder, setSortOrder] = useState(
+      JSON.parse(localStorage.getItem("sortOrder")) || 
+      {
+         caseNo: "ASC",
+         name: "DESC",
+         description: "DESC",
+         deadline: "DESC",
+         email: "DESC",
+         phone: "DESC"
+      }
+   );
+
+   useEffect(() => {
+      localStorage.setItem("sortOrder", JSON.stringify(sortOrder))
+   }, [sortOrder]);
 
    function sortByCaseNumber() {
       setSortOrder(prevSortOrder => ({

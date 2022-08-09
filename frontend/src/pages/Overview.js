@@ -1,7 +1,10 @@
+import CasesDataTable from "../components/CasesDataTable";
+
 const Overview = () => {
+
    return (
       <div>
-         Overview
+         <CasesDataTable />
       </div>
    );
 }

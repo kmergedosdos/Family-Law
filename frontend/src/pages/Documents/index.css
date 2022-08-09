@@ -1,0 +1,9 @@
+.topbar {
+   display: flex;
+   gap: 20px;
+}
+
+.topbar--item {
+   text-decoration: underline;
+   cursor: pointer;
+}

@@ -12,7 +12,7 @@ const Calendar = () => {
             <div className='sidebar'>
                <h2>{client}</h2>
                <nav>
-                  <Link to='/documents'>Documents</Link>
+                  <Link to='/documents' state={{ client }}>Documents</Link>
                   <Link to='/tasks'>Tasks</Link>
                   <Link  to='/billing'>Billing</Link>
                   <Link to='/communications'>Communications</Link>

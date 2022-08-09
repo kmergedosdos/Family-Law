@@ -10,27 +10,45 @@ const CasesDataTable = () => {
    const [casesData, setCasesData] = useState(MOCK_DATA);
    const [sortOrder, setSortOrder] = useState({
       caseNo: "ASC",
-      name: "NONE",
-      description: "NONE",
-      deadline: "NONE",
-      email: "NONE",
-      phone: "NONE"
+      name: "DESC",
+      description: "DESC",
+      deadline: "DESC",
+      email: "DESC",
+      phone: "DESC"
    })
 
    function sortByCaseNumber() {
       setSortOrder(prevSortOrder => ({
-         ...sortOrder,
-         caseNo: prevSortOrder.caseNo === "ASC" ? "DESC" : "ASC" 
-      }))
+         caseNo: prevSortOrder.caseNo === "ASC" ? "DESC" : "ASC",
+         name: "DESC",
+         description: "DESC",
+         deadline: "DESC",
+         email: "DESC",
+         phone: "DESC"
+      }));
       setCasesData(prevCasesData => {
-         const sortedData = prevCasesData.sort((a, b) => {
-            if(sortOrder.caseNo === "ASC") {
-               return (a.id < b.id) ? -1 : 1;
-            } else {
-               return (a.id < b.id) ? 1 : -1;
-            }
-         })
-         return sortedData.map(d => d);
+         const sortedData = sortOrder.caseNo === "ASC" ?
+            prevCasesData.sort((a, b) => (a.id < b.id) ? 1 : -1) :
+            prevCasesData.sort((a, b) => (a.id < b.id) ? -1 : 1);
+         return sortedData;
+      });
+   }
+
+   function sortBy(key) {
+      setSortOrder(prevSortOrder => ({
+         caseNo: "DESC",
+         name: "DESC",
+         description: "DESC",
+         deadline: "DESC",
+         email: "DESC",
+         phone: "DESC",
+         [key]: prevSortOrder[key] === "DESC" ? "ASC" : "DESC"
+      }));
+      setCasesData(prevCasesData => {
+         const sortedData = sortOrder[key] === "ASC" ?
+            prevCasesData.sort((a, b) => (a[key] < b[key]) ? 1 : -1) :
+            prevCasesData.sort((a, b) => (a[key] < b[key]) ? -1 : 1);
+         return sortedData;
       });
    }
 
@@ -39,11 +57,11 @@ const CasesDataTable = () => {
          <thead>
             <tr>
                <th onClick={sortByCaseNumber}>Case no.</th>
-               <th>Name</th>
-               <th>Description</th>
-               <th>Deadline</th>
-               <th>Email</th>
-               <th>Phone</th>
+               <th onClick={() => sortBy("name")}>Name</th>
+               <th onClick={() => sortBy("description")}>Description</th>
+               <th onClick={() => sortBy("deadline")}>Deadline</th>
+               <th onClick={() => sortBy("email")}>Email</th>
+               <th onClick={() => sortBy("phone")}>Phone</th>
             </tr>
          </thead>
          <tbody>
@@ -51,7 +69,7 @@ const CasesDataTable = () => {
                casesData.map(caseItem => (
                   <tr key={caseItem.id}>
                      <td>{caseItem.id}</td>
-                     <td><Link to='/documents'>{caseItem.name}</Link></td>
+                     <td><Link to='/documents' state={{ client: caseItem.name }}>{caseItem.name}</Link></td>
                      <td>{caseItem.description}</td>
                      <td>{caseItem.deadline}</td>
                      <td>{caseItem.email}</td>

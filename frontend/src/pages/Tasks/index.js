@@ -1,7 +1,10 @@
+import "./index.css"
 import { Link, useLocation } from 'react-router-dom';
+import TASKS_DATA from './TASKS_DATA.json';
 
 const Tasks = () => {
    const { client } = useLocation().state;
+   const tasks_data = TASKS_DATA;
 
    return (
       <div className='layout'>
@@ -20,7 +23,28 @@ const Tasks = () => {
                </nav>
             </div>
             <section className='content'>
-               Tasks
+               <table>
+                  <thead>
+                     <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Date Due</th>
+                        <th>Date Created</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     {
+                        tasks_data.map((task, i) => (
+                           <tr key={task + i}>
+                              <td>{task.name}</td>
+                              <td>{task.description}</td>
+                              <td>{task.date_due}</td>
+                              <td>{task.date_created}</td>
+                           </tr>
+                        ))
+                     }
+                  </tbody>
+               </table>
             </section>
          </div>
       </div>

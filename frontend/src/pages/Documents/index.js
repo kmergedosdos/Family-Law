@@ -23,10 +23,10 @@ const Documents = () => {
                <h2>{client}</h2>
                <nav>
                   <Link to='/documents' state={{ client }}>Documents</Link>
-                  <Link to='/tasks'>Tasks</Link>
-                  <Link  to='/billing'>Billing</Link>
-                  <Link to='/communications'>Communications</Link>
-                  <Link  to='/calendar'>Calendar</Link>
+                  <Link to='/tasks' state={{ client }}>Tasks</Link>
+                  <Link  to='/billing' state={{ client }}>Billing</Link>
+                  <Link to='/communications' state={{ client }}>Communications</Link>
+                  <Link  to='/calendar' state={{ client }}>Calendar</Link>
                </nav>
             </div>
             <section className='content'>

@@ -1,4 +1,4 @@
-import "./index.css"
+import "./index.css";
 import { Link, useLocation } from 'react-router-dom';
 import TASKS_DATA from './TASKS_DATA.json';
 

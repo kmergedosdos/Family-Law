@@ -60,34 +60,33 @@ const CasesDataTable = () => {
    }
 
    return (
-      <div>
+      <div className='table-wrapper'>
          <table>
-            <thead>
+            <thead className='table_header'>
                <tr>
-                  <th onClick={sortByCaseNumber}>Case no.</th>
-                  <th onClick={() => sortBy("name")}>Name</th>
-                  <th onClick={() => sortBy("description")}>Description</th>
-                  <th onClick={() => sortBy("deadline")}>Deadline</th>
-                  <th onClick={() => sortBy("email")}>Email</th>
-                  <th onClick={() => sortBy("phone")}>Phone</th>
+                  <th className='table_case' onClick={sortByCaseNumber}>Case no.</th>
+                  <th className='table_name' onClick={() => sortBy("name")}>Name</th>
+                  <th className='table_description' onClick={() => sortBy("description")}>Description</th>
+                  <th className='table_deadline' onClick={() => sortBy("deadline")}>Deadline</th>
+                  <th className='table_email' onClick={() => sortBy("email")}>Email</th>
+                  <th className='table_phone' onClick={() => sortBy("phone")}>Phone</th>
                </tr>
             </thead>
             <tbody>
                {
-                  casesData.map(caseItem => (
-                     <tr key={caseItem.id}>
-                        <td>{caseItem.id}</td>
-                        <td><Link to='/documents' state={{ client: caseItem.name }}>{caseItem.name}</Link></td>
-                        <td>{caseItem.description}</td>
-                        <td>{caseItem.deadline}</td>
-                        <td>{caseItem.email}</td>
-                        <td>{caseItem.phone}</td>
+                  casesData.map((caseItem, i) => (
+                     <tr key={caseItem.id} style={{backgroundColor: i%2 === 0 ? "#F5F8F8" : "white"}}>
+                        <td className='table_case'>{caseItem.id}</td>
+                        <td className='table_name'><Link to='/documents' state={{ client: caseItem.name }}>{caseItem.name}</Link></td>
+                        <td className='table_description'>{caseItem.description}</td>
+                        <td className='table_deadline'>{caseItem.deadline}</td>
+                        <td className='table_email'>{caseItem.email}</td>
+                        <td className='table_phone'>{caseItem.phone}</td>
                      </tr>
                   ))
                }
             </tbody>
          </table>
-         <button style={{cursor: "pointer"}}>+ New</button>
       </div>
    );
 }

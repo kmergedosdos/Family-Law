@@ -1,0 +1,33 @@
+.overview {
+   width: 100%;
+   min-height: 100vh;
+   padding: 15px;
+   display: flex;
+   gap: 15px;
+   justify-content: center;
+}
+
+.overview_cases-table {
+   width: 65%;
+   height: calc(100vh - 30px); /* 100vh - vertical padding */
+   background-color: #F5F2F2;
+   border-radius: 10px;
+   box-shadow: 4px 4px 8px rgba(145, 145, 145, 0.25);
+   padding: 20px;
+}
+
+.overview_cases-table_header {
+   display: flex;
+   justify-content: space-between;
+   align-items: baseline;
+   margin-bottom: 10px;
+}
+
+.overview_cases-table_header_tool-bar {
+   display: flex;
+   gap: 5px;
+}
+
+.overview_calendar {
+   width: 35%;
+}

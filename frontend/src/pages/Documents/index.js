@@ -1,9 +1,10 @@
 import './index.css';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import DocumentsTab from '../../components/DocumentsTab';
 import QuestionnairesList from '../../components/QuestionnairesList';
 import FillFields from '../../components/FillFields';
+import Sidebar from '../../components/Sidebar';
 
 const Documents = () => {
    const { client } = useLocation().state;
@@ -15,28 +16,31 @@ const Documents = () => {
 
    return (
       <div className='layout'>
-         <header className='header--section'>
-            <Link to='/'>Back</Link>
-         </header>
-         <div className='main--section'>
-            <div className='sidebar'>
-               <h2>{client}</h2>
-               <nav>
-                  <Link to='/documents' state={{ client }}>Documents</Link>
-                  <Link to='/tasks' state={{ client }}>Tasks</Link>
-                  <Link  to='/billing' state={{ client }}>Billing</Link>
-                  <Link to='/communications' state={{ client }}>Communications</Link>
-                  <Link  to='/calendar' state={{ client }}>Calendar</Link>
-               </nav>
-            </div>
+         <div className='main-section'>
+            <Sidebar client={client}/>
             <section className='content'>
-               <div className='documents--content--container'>
-                  <nav className='topbar'>
-                     <div className='topbar--item' onClick={() => switchTabTo("Documents")}>Documents</div>
-                     <div className='topbar--item' onClick={() => switchTabTo("Questionnaires")}>Questionnaires</div>
-                     <div className='topbar--item' onClick={() => switchTabTo("Fill Fields")}>Fill Fields</div>
+               <div className='documents'>
+                  <nav className='documents_topbar'>
+                     <div
+                        className={`documents_topbar_item ${currentTab === "Documents" ? "active": ""}`}
+                        onClick={() => switchTabTo("Documents")}
+                     >
+                        Documents
+                     </div>
+                     <div
+                        className={`documents_topbar_item ${currentTab === "Questionnaires" ? "active": ""}`}
+                        onClick={() => switchTabTo("Questionnaires")}
+                     >
+                        Questionnaires
+                     </div>
+                     <div
+                        className={`documents_topbar_item ${currentTab === "Fill Fields" ? "active": ""}`}
+                        onClick={() => switchTabTo("Fill Fields")}
+                     >
+                        Fill Fields
+                     </div>
                   </nav>
-                  <section>
+                  <section className='documents_content'>
                      {currentTab === "Documents" && <DocumentsTab />}
                      {currentTab === "Questionnaires" && <QuestionnairesList />}
                      {currentTab === "Fill Fields" && <FillFields />}

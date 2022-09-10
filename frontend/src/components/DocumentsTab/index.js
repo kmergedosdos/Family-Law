@@ -2,7 +2,7 @@ import './index.css';
 
 const DocumentsTab = () => {
    return (
-      <div>DocumentsTab</div>
+      <div>Documents Content</div>
    );
 }
 

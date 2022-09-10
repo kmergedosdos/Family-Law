@@ -13,21 +13,10 @@ button {
 
 
 /* PAGES LAYOUT */
-.header--section {
-   padding: 10px;
-}
-
-.main--section {
+.main-section {
    display: flex;
 }
 
-.sidebar {
-   width: 180px;
-   min-height: 100vh;
-   background-color: rgba(0,0,0,0.1);
-}
-
-.sidebar nav {
-   display: flex;
-   flex-direction: column;
+.content {
+   width: 100%;
 }

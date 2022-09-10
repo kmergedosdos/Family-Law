@@ -1,9 +1,22 @@
-.topbar {
+.documents_topbar {
    display: flex;
-   gap: 20px;
+   background-color: rgba(0,0,0,0.1);
 }
 
-.topbar--item {
-   text-decoration: underline;
+.documents_topbar_item {
+   text-decoration: none;
    cursor: pointer;
+   padding: 1em 2em;
+}
+
+.documents_topbar_item:hover {
+   background-color: rgba(200,200,200,1);
+}
+
+.documents_topbar_item.active {
+   background-color: white;
+}
+
+.documents_content {
+   padding: 1em;
 }

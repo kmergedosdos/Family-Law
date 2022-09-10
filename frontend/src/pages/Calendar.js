@@ -1,26 +1,17 @@
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import Sidebar from '../components/Sidebar';
 
 const Calendar = () => {
    const { client } = useLocation().state;
 
    return (
       <div className='layout'>
-         <header className='header--section'>
-            <Link to='/'>Back</Link>
-         </header>
-         <div className='main--section'>
-            <div className='sidebar'>
-               <h2>{client}</h2>
-               <nav>
-                  <Link to='/documents' state={{ client }}>Documents</Link>
-                  <Link to='/tasks' state={{ client }}>Tasks</Link>
-                  <Link  to='/billing' state={{ client }}>Billing</Link>
-                  <Link to='/communications' state={{ client }}>Communications</Link>
-                  <Link  to='/calendar' state={{ client }}>Calendar</Link>
-               </nav>
-            </div>
+         <div className='main-section'>
+            <Sidebar client={client}/>
             <section className='content'>
-               Calendar
+               <div style={{padding: "1em"}}>
+                  Calendar
+               </div>
             </section>
          </div>
       </div>

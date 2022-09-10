@@ -77,7 +77,11 @@ const CasesDataTable = () => {
                   casesData.map((caseItem, i) => (
                      <tr key={caseItem.id} style={{backgroundColor: i%2 === 0 ? "#F5F8F8" : "white"}}>
                         <td className='table_case'>{caseItem.id}</td>
-                        <td className='table_name'><Link to='/documents' state={{ client: caseItem.name }}>{caseItem.name}</Link></td>
+                        <td className='table_name'>
+                           <Link className='table_name_data' to='/documents' state={{ client: caseItem.name}}>
+                              {caseItem.name}
+                           </Link>
+                        </td>
                         <td className='table_description'>{caseItem.description}</td>
                         <td className='table_deadline'>{caseItem.deadline}</td>
                         <td className='table_email'>{caseItem.email}</td>

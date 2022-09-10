@@ -47,3 +47,10 @@ th:hover {
 .table_phone {
    width: 10%;
 }
+
+.table_name_data {
+   text-decoration: none;
+}
+.table_name_data:hover {
+   text-decoration: underline;
+}

@@ -5,7 +5,7 @@ import MOCK_DATA from './MOCK_DATA.json';
 
 // Displays all the cases in a table
 
-const CasesDataTable = () => {
+const CasesDataTable = ({ filter }) => {
 
    const [casesData, setCasesData] = useState(MOCK_DATA);
    const [sortOrder, setSortOrder] = useState(
@@ -25,6 +25,10 @@ const CasesDataTable = () => {
    useEffect(() => {
       localStorage.setItem("sortOrder", JSON.stringify(sortOrder))
    }, [sortOrder]);
+
+   useEffect(() => {
+      setCasesData(MOCK_DATA.filter(caseItem => caseItem.name.toLocaleLowerCase().includes(filter.toLowerCase())));
+   }, [filter])
 
    function sortByCaseNumber() {
       setSortOrder(prevSortOrder => ({

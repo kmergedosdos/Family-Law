@@ -29,23 +29,30 @@ th:hover {
    background-color: #F1F5FB;
 }
 
+table input {
+   width: 100%;
+}
+
 .table_case {
-   width: 10%;
+   width: 12%;
 }
 .table_name {
-   width: 15%;
+   width: 13%;
 }
 .table_description {
-   width: 35%;
-}
-.table_deadline {
-   width: 10%;
-}
-.table_email {
    width: 20%;
 }
+.table_deadline {
+   width: 15%;
+}
+.table_email {
+   width: 15%;
+}
 .table_phone {
-   width: 10%;
+   width: 17%;
+}
+.table_action {
+   width: 8%;
 }
 
 .table_name_data {

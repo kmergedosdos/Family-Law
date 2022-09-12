@@ -7,7 +7,7 @@ const Sidebar = ({client}) => {
          <div className='sidebar_tools'>
             <Link className='sidebar_tools_exit' to='/'>Exit</Link>
          </div>
-         <h2 className='sidebar_header'>{client}</h2>
+         <h2 className='sidebar_header'>{client.name}</h2>
          <nav className='sidebar_nav'>
             <NavLink className='sidebar_nav_item' to='/documents' state={{ client }}>Documents</NavLink>
             <NavLink className='sidebar_nav_item' to='/billing' state={{ client }}>Billing</NavLink>

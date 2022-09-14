@@ -27,7 +27,7 @@ const CasesDataTable = ({ filter }) => {
    }, [sortOrder]);
 
    useEffect(() => {
-      setCasesData(MOCK_DATA.filter(caseItem => caseItem.name.toLocaleLowerCase().includes(filter.toLowerCase())));
+      setCasesData(MOCK_DATA.filter(caseItem => caseItem.name.toLowerCase().includes(filter.toLowerCase())));
    }, [filter])
 
    function sortByCaseNumber() {

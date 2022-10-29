@@ -1,16 +1,12 @@
 import "./index.css";
-import { useLocation } from 'react-router-dom';
 import TASKS_DATA from './TASKS_DATA.json';
-import Sidebar from "../../components/Sidebar";
 
 const Tasks = () => {
-   const { client } = useLocation().state;
    const tasks_data = TASKS_DATA;
 
    return (
       <div className='layout'>
          <div className='main-section'>
-            <Sidebar client={client}/>
             <section className='content'>
                <div className="billing">
                   <table>

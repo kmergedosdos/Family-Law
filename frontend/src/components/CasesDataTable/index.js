@@ -1,7 +1,7 @@
 import './index.css';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import MOCK_DATA from './MOCK_DATA.json';
+import MOCK_DATA from '../../fake-api/MOCK_DATA.json';
 
 // Displays all the cases in a table
 

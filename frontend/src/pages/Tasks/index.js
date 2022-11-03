@@ -1,5 +1,5 @@
 import "./index.css";
-import TASKS_DATA from './TASKS_DATA.json';
+import TASKS_DATA from '../../fake-api/TASKS_DATA.json';
 
 const Tasks = () => {
    const tasks_data = TASKS_DATA;

@@ -1,16 +1,27 @@
 import "./index.css";
-import { useLocation } from 'react-router-dom';
-import TASKS_DATA from './TASKS_DATA.json';
-import Sidebar from "../../components/Sidebar";
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getTasks, emptyTasks } from '../../redux/tasksActions';
+
+// import TASKS_DATA from '../../fake-api/TASKS_DATA.json';
 
 const Tasks = () => {
-   const { client } = useLocation().state;
-   const tasks_data = TASKS_DATA;
+   const dispatch = useDispatch();
+   const tasks_data = useSelector(store => store.tasks);
+
+   console.log(tasks_data);
+   
+   useEffect(() => {
+      dispatch(getTasks());
+      
+      return function cleanup() {
+         dispatch(emptyTasks());
+      }
+   }, [dispatch]);
 
    return (
       <div className='layout'>
          <div className='main-section'>
-            <Sidebar client={client}/>
             <section className='content'>
                <div className="billing">
                   <table>

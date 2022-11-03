@@ -1,0 +1,20 @@
+.top-subbar {
+   display: flex;
+   flex-wrap: wrap;
+   background-color: rgba(0,0,0,0.1);
+}
+
+.top-subbar_item {
+   padding: 1em;
+   text-transform: capitalize;
+   text-decoration: none;
+   color: black;
+}
+
+.top-subbar_item:hover {
+   background-color: rgba(200,200,200,1);
+}
+
+.top-subbar_item.active {
+   background-color: white;
+}

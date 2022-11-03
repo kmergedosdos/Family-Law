@@ -33,7 +33,7 @@ const Overview = () => {
             </div>
             <CasesDataTable filter={filter}/>
          </div>
-         <div className="overview_calendar">
+         <div className="calendar">
             <Calendar />
          </div>
       </div>

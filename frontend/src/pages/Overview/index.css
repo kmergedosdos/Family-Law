@@ -1,5 +1,5 @@
 .overview {
-   width: 100%;
+   width: 100vw;
    min-height: 100vh;
    padding: 15px;
    display: flex;
@@ -28,6 +28,6 @@
    gap: 5px;
 }
 
-.overview_calendar {
+.calendar {
    width: 35%;
 }

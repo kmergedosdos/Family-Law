@@ -1,6 +1,6 @@
 import './index.css';
 import { Link } from 'react-router-dom';
-import QUESTIONNAIRES_DATA from './QUESTIONNAIRES_DATA.json';
+import QUESTIONNAIRES_DATA from '../../fake-api/QUESTIONNAIRES_DATA.json';
 
 const QuestionnairesList = () => {
 

@@ -2,9 +2,9 @@ import Overview from './pages/Overview';
 import Documents from './pages/Documents';
 import Questionnaire from './pages/Questionnaire';
 import Tasks from './pages/Tasks';
-// import Billing from './pages/Billing';
-// import Communications from './pages/Communications';
-// import Calendar from './pages/Calendar';
+import Billing from './pages/Billing';
+import Communications from './pages/Communications';
+import Calendar from './pages/Calendar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import DocumentsLayout from './layouts/DocumentsLayout';
 import MainLayout from './layouts/MainLayout';
@@ -23,10 +23,10 @@ const App = () => {
               <Route path='fill-fields' element={<FillFields />} />
             </Route>
             <Route path='tasks' element={<Tasks/>}/>
+            <Route path='/billing' element={<Billing/>}/>
+            <Route path='/communications' element={<Communications/>}/>
+            <Route path='/calendar' element={<Calendar/>}/>
           </Route>
-          {/* <Route path='/billing' element={<Billing/>}/> */}
-          {/* <Route path='/communications' element={<Communications/>}/> */}
-          {/* <Route path='/calendar' element={<Calendar/>}/> */}
         </Routes>
       </Router>
     </div>

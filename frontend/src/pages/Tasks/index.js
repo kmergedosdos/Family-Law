@@ -1,8 +1,23 @@
 import "./index.css";
-import TASKS_DATA from '../../fake-api/TASKS_DATA.json';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getTasks, emptyTasks } from '../../redux/tasksActions';
+
+// import TASKS_DATA from '../../fake-api/TASKS_DATA.json';
 
 const Tasks = () => {
-   const tasks_data = TASKS_DATA;
+   const dispatch = useDispatch();
+   const tasks_data = useSelector(store => store.tasks);
+
+   console.log(tasks_data);
+   
+   useEffect(() => {
+      dispatch(getTasks());
+      
+      return function cleanup() {
+         dispatch(emptyTasks());
+      }
+   }, [dispatch]);
 
    return (
       <div className='layout'>

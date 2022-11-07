@@ -1,0 +1,32 @@
+[
+   {
+      "id": 1,
+      "invoice_num": 1,
+      "status": "paid",
+      "total_bill": 1000,
+      "sent_date": "4/3/2022",
+      "due_date": "5/6/2022",
+      "unpaid_balance": 0,
+      "paid_balance": 1000
+   },
+   {
+      "id": 2,
+      "invoice_num": 2,
+      "status": "draft",
+      "total_bill": 1000,
+      "sent_date": "N/A",
+      "due_date": "N/A",
+      "unpaid_balance": 1000,
+      "paid_balance": 0
+   },
+   {
+      "id": 3,
+      "invoice_num": 3,
+      "status": "unpaid",
+      "total_bill": 1000,
+      "sent_date": "7/8/2022",
+      "due_date": "9/12/2022",
+      "unpaid_balance": 100,
+      "paid_balance": 900
+   }
+]

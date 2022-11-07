@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import DocumentsLayout from './layouts/DocumentsLayout';
 import MainLayout from './layouts/MainLayout';
 import FillFields from './pages/FillFields';
+import BillingsLayout from './layouts/BillingsLayout';
 
 const App = () => {
   return (
@@ -23,9 +24,11 @@ const App = () => {
               <Route path='fill-fields' element={<FillFields />} />
             </Route>
             <Route path='tasks' element={<Tasks/>}/>
-            <Route path='/billing' element={<Billing/>}/>
-            <Route path='/communications' element={<Communications/>}/>
-            <Route path='/calendar' element={<Calendar/>}/>
+            <Route path='billing' element={<BillingsLayout />}>
+              <Route index element={<Billing/>}/>
+            </Route>
+            <Route path='communications' element={<Communications/>}/>
+            <Route path='calendar' element={<Calendar/>}/>
           </Route>
         </Routes>
       </Router>

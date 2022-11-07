@@ -1,0 +1,52 @@
+[
+   {
+      "id": 1,
+      "description": "Doing something",
+      "hours": 1.5,
+      "rate": 150,
+      "billable": 225,
+      "date": "9/10/2022",
+      "user": "User 1",
+      "status": "unbilled" 
+   },
+   {
+      "id": 2,
+      "description": "Doing something",
+      "hours": 2,
+      "rate": 200,
+      "billable": 400,
+      "date": "7/13/2022",
+      "user": "User 2",
+      "status": "unbilled" 
+   },
+   {
+      "id": 3,
+      "description": "Doing something",
+      "hours": 1,
+      "rate": 150,
+      "billable": 150,
+      "date": "6/12/2022",
+      "user": "User 1",
+      "status": "draft" 
+   },
+   {
+      "id": 4,
+      "description": "Doing something",
+      "hours": 2,
+      "rate": 300,
+      "billable": 600,
+      "date": "5/13/2022",
+      "user": "User 3",
+      "status": "draft" 
+   },
+   {
+      "id": 5,
+      "description": "Doing something",
+      "hours": 4,
+      "rate": 200,
+      "billable": 800,
+      "date": "5/6/2022",
+      "user": "User 2",
+      "status": "billed" 
+   }
+]

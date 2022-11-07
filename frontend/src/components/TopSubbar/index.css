@@ -1,4 +1,5 @@
 .top-subbar {
+   width: 100%;
    display: flex;
    flex-wrap: wrap;
    background-color: rgba(0,0,0,0.1);

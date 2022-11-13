@@ -11,7 +11,7 @@ const MainLayout = () => {
         location.pathname !== "/" &&
         <Sidebar client={location.state.client}/>
       }
-      <main>
+      <main className="main-content">
         <Outlet />
       </main>
     </div>

@@ -8,10 +8,11 @@ const styles = {
 }
 
 
-const DataTable = ({ data }) => {
+const DataTable = ({ data, setNewData }) => {
 
   const [headers, setHeaders] = useState([]);
   const [items, setItems] = useState([]);
+  const [newRowInputData, setNewRowInputData] = useState(null);
 
   useEffect(() => {
     if(Array.isArray(data) && data.length) {
@@ -33,6 +34,19 @@ const DataTable = ({ data }) => {
     }
   }, [data, headers]);
 
+  function addNewRow() {
+    const newRowData = {
+      id: data.slice(-1)[0].id + 1,
+      ...headers.reduce((newRowInputData, header) => {
+        newRowInputData[header] = null;
+        return newRowInputData;
+      }, {})
+    }
+    console.log(newRowData);
+
+    // setNewRowInputData()
+  }
+
   return (
     <table className='datatable'>
       <thead>
@@ -45,6 +59,13 @@ const DataTable = ({ data }) => {
         </tr>
       </thead>
       <tbody>
+        <tr>
+          <td>
+            <button onClick={addNewRow}>
+              +New
+            </button>
+          </td>
+        </tr>
         {
           items.map((item, i) => (
             <tr key={i}>

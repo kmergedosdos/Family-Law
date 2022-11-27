@@ -9,7 +9,12 @@ const Communications = () => {
 
    return (
       <div>
-         <DataTable data={communicationsData} />
+         {
+            communicationsData.length ?
+            <DataTable data={communicationsData} setNewData={setCommunicationsData}/>
+            :
+            <p><br/>No data available.</p>
+         }
       </div>
    );
 }

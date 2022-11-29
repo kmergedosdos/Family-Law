@@ -1,0 +1,15 @@
+.datatable {
+  width: 100%;
+}
+
+.tablerow {
+  background-color: rgba(0,0,0,0.1);
+}
+
+.tablerow__data {
+  padding: 0;
+}
+
+.tablerow__input {
+  padding: 0.7em;
+}

@@ -23,8 +23,10 @@ const DataTable = ({ data, setNewData }) => {
 
   useEffect(() => {
     if(Array.isArray(data) && data.length) {
+      // reverse order of data to display
+      const reverseData = [...data].reverse();
       // set items to display based on the headers
-      setItems(data.map(item => {
+      setItems(reverseData.map(item => {
         const temp_item = {};
         headers.forEach(header => {
           temp_item[header] = item[header];
@@ -35,16 +37,25 @@ const DataTable = ({ data, setNewData }) => {
   }, [data, headers]);
 
   function addNewRow() {
+    setNewRowInputData(headers.reduce((newRowInputData, header) => {
+      newRowInputData[header] = null;
+      return newRowInputData;
+    }, {}))
+  }
+
+  function saveNewRow() {
     const newRowData = {
       id: data.slice(-1)[0].id + 1,
-      ...headers.reduce((newRowInputData, header) => {
-        newRowInputData[header] = null;
-        return newRowInputData;
-      }, {})
+      ...newRowInputData
     }
-    console.log(newRowData);
+    // console.log(newRowData);
+    setNewData(prevData => ([...prevData, newRowData]));
+    setNewRowInputData(null);
+  }
 
-    // setNewRowInputData()
+  function handleRowInputChange(e, key) {
+    const value = e.target.value;
+    setNewRowInputData(prevInputData => ({...prevInputData, [key]: value}));
   }
 
   return (
@@ -59,13 +70,57 @@ const DataTable = ({ data, setNewData }) => {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>
-            <button onClick={addNewRow}>
-              +New
-            </button>
-          </td>
-        </tr>
+        {
+          newRowInputData ?
+          <>
+            <tr className='tablerow'>
+              {
+                Object.keys(newRowInputData).map((key, i) => {
+                  if(i === 0) {
+                    return (
+                      <td key={i} className="tablerow__data">
+                        <input
+                          autoFocus
+                          type="text"
+                          className='tablerow__input'
+                          onChange={(e) => {
+                            handleRowInputChange(e, key);
+                          }}
+                        />
+                      </td>
+                    )
+                  }
+                  return (
+                    <td key={i} className="tablerow__data">
+                      <input
+                        type="text"
+                        className='tablerow__input'
+                        onChange={(e) => {
+                          handleRowInputChange(e, key);
+                        }}
+                      />
+                    </td>
+                  )
+                })
+              }
+            </tr>
+            <tr>
+              <td>
+                <button onClick={saveNewRow}>
+                  Save
+                </button>
+              </td>
+            </tr>
+          </>
+          :
+          <tr>
+            <td>
+              <button onClick={addNewRow}>
+                +New
+              </button>
+            </td>
+          </tr>
+        }
         {
           items.map((item, i) => (
             <tr key={i}>

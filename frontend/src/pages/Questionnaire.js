@@ -7,7 +7,7 @@ const Questionnaire = () => {
   
   return (
     <div>
-      <DataTable data={ questionnairesData }/>
+      <DataTable data={ questionnairesData } setNewData={setQuestionnairesData}/>
     </div>
   );
 }

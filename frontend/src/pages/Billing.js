@@ -11,7 +11,7 @@ const Billing = () => {
 
    return (
       <div style={style}>
-         <DataTable data={billables} setNewData={setBillables}/>
+         <DataTable data={billables} setNewData={setBillables} totals={["hours", "billable"]}/>
       </div>
    );
 }

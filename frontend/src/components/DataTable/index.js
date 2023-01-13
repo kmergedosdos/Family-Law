@@ -8,7 +8,7 @@ const styles = {
 }
 
 
-const DataTable = ({ data, setNewData }) => {
+const DataTable = ({ data, setNewData, totals }) => {
 
   const [headers, setHeaders] = useState([]);
   const [items, setItems] = useState([]);
@@ -131,6 +131,12 @@ const DataTable = ({ data, setNewData }) => {
               }
             </tr>
           ))
+        }
+        {
+          Array.isArray(totals) && totals.length > 0 && 
+          <tr>
+            <td>total</td>
+          </tr>
         }
       </tbody>
     </table>

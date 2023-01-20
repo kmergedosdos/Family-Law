@@ -17,11 +17,11 @@ const Invoices = () => {
     <div style={style}>
       <section>
         <h3>Invoices</h3>
-        <DataTable data={invoices} setNewData={setInvoices}/>
+        <DataTable data={invoices} setNewData={setInvoices} totals={['total_bill', 'unpaid_balance', 'paid_balance']}/>
       </section>
       <section>
         <h3>Payments</h3>
-        <DataTable data={payments} setNewData={setPayments}/>
+        <DataTable data={payments} setNewData={setPayments} totals={['payment_amount']}/>
       </section>
     </div>
   )

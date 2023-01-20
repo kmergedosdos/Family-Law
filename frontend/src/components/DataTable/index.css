@@ -13,3 +13,7 @@
 .tablerow__input {
   padding: 0.7em;
 }
+
+.tablerow-totals {
+  background-color: rgba(0,0,0,0.1);
+}

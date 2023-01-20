@@ -13,6 +13,7 @@ const DataTable = ({ data, setNewData, totals }) => {
   const [headers, setHeaders] = useState([]);
   const [items, setItems] = useState([]);
   const [newRowInputData, setNewRowInputData] = useState(null);
+  const [summation, setSummation] = useState({});
 
   useEffect(() => {
     if(Array.isArray(data) && data.length) {
@@ -33,8 +34,18 @@ const DataTable = ({ data, setNewData, totals }) => {
         })
         return temp_item;
       }));
+
+      // set summation of data included in totals if given
+      if(totals) {
+        setSummation(totals.reduce((res, total) => {
+          return {
+            ...res,
+            [total]: reverseData.reduce((sum, item) => sum + item[total], 0)
+          }
+        }, {}));
+      }
     }
-  }, [data, headers]);
+  }, [data, headers, totals]);
 
   function addNewRow() {
     setNewRowInputData(headers.reduce((newRowInputData, header) => {
@@ -134,8 +145,14 @@ const DataTable = ({ data, setNewData, totals }) => {
         }
         {
           Array.isArray(totals) && totals.length > 0 && 
-          <tr>
-            <td>total</td>
+          <tr className='tablerow-totals'>
+            {
+              headers.map((header, i) => (
+                <td key={i}>
+                  {totals.includes(header) && summation[header]}
+                </td>
+              ))
+            }
           </tr>
         }
       </tbody>

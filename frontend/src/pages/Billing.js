@@ -8,10 +8,11 @@ const style = {
 
 const Billing = () => {
    const [billables, setBillables] = useState(BILLABLES);
+   const totals = ['hours', 'billable'];
 
    return (
       <div style={style}>
-         <DataTable data={billables} setNewData={setBillables} totals={["hours", "billable"]}/>
+         <DataTable data={billables} setNewData={setBillables} totals={totals}/>
       </div>
    );
 }
